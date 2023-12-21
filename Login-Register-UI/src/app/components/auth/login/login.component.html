@@ -1,0 +1,47 @@
+<body>
+  <div class="container">
+    <div class="forms-container">
+      <div class="signin-signup">
+      
+        <form [formGroup]="loginForm" class="sign-in-form">
+          <h2 class="title">Sign in</h2>
+          <div class="input-field" [class.error]="loginForm.controls['username'].dirty && loginForm.hasError('required','username')">
+            <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon" fontIcon="mail"></mat-icon>
+            <input class="form-control" type="text" placeholder="Enter Your Username"  formControlName="username"/>
+          </div>
+          <small *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')" class="text-danger">*Username is required</small>
+          <div class="input-field" [class.error]="loginForm.controls['password'].dirty && loginForm.hasError('required','password')">
+            <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon" fontIcon="lock"></mat-icon>
+            <input class="form-control" type="password" placeholder="Enter Your Password" formControlName="password"/>
+          </div>
+          <small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')" class="text-danger">*Password is required</small>
+          <div class="form-inline mt-4">
+            <a id="forget" class="font-weight-bold" routerLink="">Forget Password?</a>
+          </div>
+          <input (click)="onLogin()" type="submit" value="Login" class="btn solid" />
+         
+        </form>
+      
+      </div>
+    </div>
+
+    <div class="panels-container">
+      <div class="panel left-panel">
+        <div class="content">
+          <h3>New here ?</h3>
+          <p>
+            Want to become a part of our family, Join Us Now!
+          </p>
+           <a routerLink="/register"> <button class="btn transparent" id="sign-up-btn">
+            Register
+          </button></a>
+        </div>
+        <img src="assets/images/login.png" class="image" alt="Login" />
+      </div>
+     
+    </div>
+  </div>
+
+
+</body>
+
